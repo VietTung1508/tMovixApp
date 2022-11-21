@@ -1,0 +1,20 @@
+import { Route, Routes } from "react-router-dom";
+import Catalog from "../pages/Catalog";
+import Detail from "../pages/Detail";
+import Home from "../pages/Home";
+
+function Routess() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+
+      <Route path="/:category" element={<Catalog />} />
+
+      <Route path="/:category/:id" element={<Detail />} />
+
+      <Route path="/:category/search/:keyword" element={<Catalog />} />
+    </Routes>
+  );
+}
+
+export default Routess;
