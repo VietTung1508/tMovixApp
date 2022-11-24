@@ -7,8 +7,8 @@ export const category = {
 
 export const movieType = {
   upcoming: "upcoming",
-  top_rated: "top_rated",
   popular: "popular",
+  top_rated: "top_rated",
 };
 
 export const tvType = {
@@ -18,7 +18,7 @@ export const tvType = {
 };
 
 const tmdbApi = {
-  getMovieList: (type, params) => {
+  getMoviesList: (type, params) => {
     const url = "movie/" + movieType[type];
     return axiosClient.get(url, params);
   },

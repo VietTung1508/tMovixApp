@@ -1,0 +1,14 @@
+@use "../../scss/" as *;
+
+.movie-list {
+  .swiper-slide {
+    cursor: pointer;
+    width: 18%;
+    @include tablet {
+      width: 30%;
+    }
+    @include mobile {
+      width: 40%;
+    }
+  }
+}
