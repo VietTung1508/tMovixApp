@@ -1,0 +1,37 @@
+@use "../../scss/" as *;
+
+.footer {
+  position: relative;
+  padding: 3rem 2rem;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &__content {
+    @include flex(center, center);
+    flex-direction: column;
+    max-width: 1000px;
+
+    &__logo {
+      @include flex(center, center);
+      gap: 10px;
+      margin-bottom: 3rem;
+      img {
+        width: 70px;
+      }
+    }
+
+    &__menus {
+      @include flex(center, center);
+      gap: 7rem;
+    }
+
+    &__menu {
+      @include flex(flex-start, center);
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+  }
+}

@@ -8,13 +8,18 @@ import Button from "../button/Button";
 
 import { category } from "../../api/tmdbApi";
 import apiConfig from "../../api/apiConfig";
+import noPoster from "../../assets/noposter.png";
 
 const MovieCard = (props) => {
   const item = props.item;
 
   const link = "/" + category[props.category] + "/" + item.id;
 
-  const bg = apiConfig.w500Image(item.poster_path || item.backdrop_path);
+  const bg = item.poster_path
+    ? apiConfig.w500Image(item.poster_path)
+    : item.backdrop_path
+    ? apiConfig.w500Image(item.backdrop_path)
+    : noPoster;
 
   return (
     <Link to={link}>
