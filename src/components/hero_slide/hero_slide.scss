@@ -24,6 +24,10 @@
 
 .hero-slide {
   margin-bottom: 3rem;
+
+  @include tablet {
+    margin-bottom: 1rem;
+  }
 }
 
 .hero-slide__item {
@@ -77,6 +81,9 @@
 
       .btns > * ~ * {
         margin-left: 1rem;
+      }
+      @include mobile {
+        width: 100%;
       }
     }
 

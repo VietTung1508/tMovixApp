@@ -1,13 +1,10 @@
 import "./movie-list.scss";
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
-import apiConfig from "../../api/apiConfig";
 import tmdbApi, { category, movieType, tvType } from "../../api/tmdbApi";
 
-import SwiperCore, { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import Button from "../button/Button";
 import MovieCard from "../movie-card/MovieCard";
 
 function MovieList(props) {

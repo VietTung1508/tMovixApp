@@ -12,5 +12,28 @@
 
 .movie-grid-loadmore {
   text-align: center;
-  margin: 10px 0;
+  margin: 30px 0;
+}
+
+.movie-search {
+  margin-bottom: 1.5rem;
+  .small {
+    margin-left: 1rem;
+  }
+}
+
+.noMovies {
+  div {
+    @include flex(center, center);
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  h2 {
+    text-align: center;
+  }
+  img {
+    width: 400px;
+    margin-bottom: 20px;
+  }
 }
