@@ -1,10 +1,6 @@
 import apiConfig from "../../api/apiConfig";
 import "./detail.scss";
-import tmdbApi, {
-  category as cate,
-  movieType,
-  tvType,
-} from "../../api/tmdbApi";
+import tmdbApi from "../../api/tmdbApi";
 
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -65,7 +61,7 @@ function Detail() {
                 <h1>{movie.title || movie.name}</h1>
               </div>
               <div className="genres">
-                {movie.genres.slice(0, 5).map((ge, i) => (
+                {movie.genres.slice(0, 3).map((ge, i) => (
                   <span className="genres__item" key={i}>
                     {ge.name || ge.title}
                   </span>
