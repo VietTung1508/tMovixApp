@@ -10,6 +10,7 @@ import CastList from "./CastList";
 import VideoList from "./VideoList";
 import MovieList from "../../components/movie-list/MovieList";
 import { OutlineButton } from "../../components/button/Button";
+import Button from "../../components/button/Button";
 
 function Detail() {
   const { category, id } = useParams();
@@ -54,7 +55,19 @@ function Detail() {
                       : noPoster
                   })`,
                 }}
-              ></div>
+              >
+                <div className="btnPlay">
+                  <Link
+                    to={`/${category}/${id}/watch${
+                      category === "tv" ? "&season=1&ep=1" : ""
+                    }`}
+                  >
+                    <Button>
+                      <i className="bx bx-play"></i>
+                    </Button>
+                  </Link>
+                </div>
+              </div>
             </div>
             <div className="movie-content__info">
               <div className="title">

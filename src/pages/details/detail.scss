@@ -49,6 +49,27 @@
       background-repeat: no-repeat;
       border-radius: $border-radius;
       padding-top: 165%;
+      position: relative;
+      &:hover {
+        opacity: 0.7;
+      }
+
+      .btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        @include flex(center, center);
+      }
+
+      &:hover .btn {
+        transform: translate(-50%, -50%) scale(1.2);
+
+        i {
+          transform: scale(1.8);
+        }
+      }
     }
 
     @include mobile {
