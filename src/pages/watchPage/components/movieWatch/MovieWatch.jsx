@@ -38,12 +38,12 @@ function MovieWatch() {
         </h2>
         <div className="movieWatch__mainContent ">
           <div className="screen">
-            {/* <iframe
+            <iframe
               id="iframe"
               title="iframe"
               src={`https://www.2embed.to/embed/tmdb/${category}?id=${id}`}
               allowFullScreen
-            ></iframe> */}
+            ></iframe>
           </div>
           <div className="recomendation">
             <div className="randomBox">
