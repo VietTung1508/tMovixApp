@@ -8,9 +8,6 @@ const axiosClient = axios.create({
   baseURL: apiConfig.baseUrl,
   headers: {
     "Content-Type": "application/json",
-    // "Access-Control-Allow-Origin": "*",
-    // "Access-Control-Allow-Methods": "GET",
-    // "Access-Control-Allow-Headers": "X-Requested-With",
   },
   paramsSerializer: (params) =>
     queryString.stringify({ ...params, api_key: apiConfig.apiKey }),

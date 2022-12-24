@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import tmdbApi, { category, movieType, tvType } from "../../api/tmdbApi";
+import tmdbApi from "../../api/tmdbApi";
 import apiConfig from "../../api/apiConfig";
 import noImage from "../../assets/noImage.png";
 
@@ -8,7 +8,6 @@ import { useParams } from "react-router-dom";
 
 function CastList() {
   const [casts, setCasts] = useState(null);
-
 
   const { category, id } = useParams();
 

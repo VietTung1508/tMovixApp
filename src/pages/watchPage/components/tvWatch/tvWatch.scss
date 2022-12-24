@@ -1,0 +1,50 @@
+@use "../../../../scss/" as *;
+
+.tvWatch {
+  .head-title {
+    font-size: 28px;
+    font-weight: 700;
+  }
+  &__mainContent {
+    @include flex(flex-start, center);
+    margin: 2rem 0;
+    gap: 20px;
+    .screen {
+      width: 80%;
+      iframe {
+        width: 100%;
+        height: 90vh;
+      }
+
+      .season {
+        margin: 20px 0;
+        padding: 10px 15px;
+        background-color: transparent;
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+        font-size: 18px;
+        outline: none;
+        option {
+          background-color: black;
+          margin-top: 20px;
+          border-radius: 10px;
+        }
+      }
+
+      .swiper-wrapper {
+        margin-top: 10px;
+
+        img {
+          cursor: pointer;
+          height: 130px;
+          width: 235px;
+          object-fit: cover;
+        }
+      }
+    }
+    .sideBar {
+      width: 20%;
+    }
+  }
+}

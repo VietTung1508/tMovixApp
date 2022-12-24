@@ -30,6 +30,12 @@ const tmdbApi = {
     const url = category[cate] + "/" + id + "/videos";
     return axiosClient.get(url, { params: {} });
   },
+
+  getEpisodes: (id, season) => {
+    const url = "tv/" + id + "/season/" + season;
+    return axiosClient.get(url, { params: {} });
+  },
+
   search: (cate, params) => {
     const url = "search/" + category[cate];
     return axiosClient.get(url, params);
