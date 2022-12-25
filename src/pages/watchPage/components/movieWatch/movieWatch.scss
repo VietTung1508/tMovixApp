@@ -15,6 +15,57 @@
         width: 100%;
         height: 90vh;
       }
+      .detail-movie {
+        @include flex(flex-start, center);
+        gap: 30px;
+        margin-top: 30px;
+        margin-bottom: 10px;
+        &__img {
+          padding-top: 400px;
+          background-position: top;
+          background-repeat: no-repeat;
+          background-size: cover;
+          border-radius: 10px;
+          width: 22%;
+        }
+        &__info {
+          width: 78%;
+          .detail-title {
+            font-size: 50px;
+            font-weight: 700;
+          }
+          .detail-genres {
+            @include flex(center, flex-start);
+            gap: 20px;
+            margin-top: 10px;
+            p {
+              border: 2px solid $white;
+              padding: 0.5rem 1.2rem;
+              font-size: 0.8rem;
+              font-weight: 600;
+              background-color: $body-bg;
+              border-radius: $border-radius;
+            }
+          }
+          .detail-overview {
+            font-size: 20px;
+            margin: 20px 0;
+          }
+          .detail-voteadate {
+            @include flex(Center, flex-start);
+            gap: 40px;
+            font-size: 20px;
+            span {
+              @include flex(Center, flex-start);
+              gap: 10px;
+            }
+          }
+          .detail-eps {
+            font-size: 20px;
+            margin-top: 20px;
+          }
+        }
+      }
     }
     .sideBar {
       width: 20%;

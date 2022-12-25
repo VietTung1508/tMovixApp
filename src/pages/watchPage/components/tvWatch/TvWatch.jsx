@@ -5,6 +5,8 @@ import tmdbApi from "../../../../api/tmdbApi";
 import WatchSidebar from "../../../../components/watchSidebar/WatchSidebar";
 import apiConfig from "../../../../api/apiConfig";
 import { Swiper, SwiperSlide } from "swiper/react";
+import StarIcon from "@mui/icons-material/Star";
+import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 
 function TvWatch() {
   const { category, id, season, ep } = useParams();
@@ -12,20 +14,12 @@ function TvWatch() {
   const [eps, setEps] = useState(null);
   const navigate = useNavigate();
 
-  console.log(movie);
-
   useEffect(() => {
     const getDetailMovie = async () => {
       const res = await tmdbApi.detail(category, id, { params: {} });
       setMovie(res);
     };
 
-    const getEpisodes = async () => {
-      const res = await tmdbApi.getEpisodes(id, season, ep);
-      setEps(res.episodes);
-    };
-
-    getEpisodes();
     getDetailMovie();
   }, [category, id]);
 
@@ -46,7 +40,7 @@ function TvWatch() {
           {movie ? <Link to={`/tv/${movie.id}`}> {movie.name}</Link> : ""}
         </h2>
         <div className="tvWatch__mainContent ">
-          <div className="screen">
+          <div className="main">
             <iframe
               id="iframe"
               title="iframe"
@@ -55,6 +49,42 @@ function TvWatch() {
               }&s=${season}&e=${ep}`}
               allowFullScreen
             ></iframe>
+            {movie && (
+              <div className="detail-movie">
+                <div
+                  className="detail-movie__img"
+                  style={{
+                    backgroundImage: `url(${apiConfig.w500Image(
+                      movie.poster_path
+                    )})`,
+                  }}
+                />
+                <div className="detail-movie__info">
+                  <h2 className="detail-title">{movie.name || movie.title}</h2>
+                  <div className="detail-genres">
+                    {movie.genres.slice(0, 3).map((el, i) => (
+                      <p key={i}>{el.name}</p>
+                    ))}
+                  </div>
+                  <p className="detail-overview">{movie.overview}</p>
+                  <p className="detail-voteadate">
+                    <span style={{ color: "#b5e745" }}>
+                      {movie.vote_average.toFixed(1)}
+                      <StarIcon fontSize="medium" />
+                    </span>
+                    <span>
+                      {movie.first_air_date.slice(0, 4)}
+                      <CalendarTodayIcon fontSize="small" />
+                    </span>
+                  </p>
+                  <p className="detail-eps">
+                    {`Season ${season} : ${eps && eps.length} / ${
+                      movie.seasons[season - 1].episode_count || ""
+                    }`}
+                  </p>
+                </div>
+              </div>
+            )}
             <select
               className="season"
               onChange={(e) => {
@@ -81,11 +111,13 @@ function TvWatch() {
                         );
                       }}
                     >
-                      <img
-                        alt=""
-                        className="episode-img"
-                        src={`${apiConfig.originalImage(el.still_path)}`}
-                      ></img>
+                      <div className="img-wrapper">
+                        <img
+                          alt=""
+                          className="episode-img"
+                          src={`${apiConfig.originalImage(el.still_path)}`}
+                        ></img>
+                      </div>
                       <div className="episode-detail">
                         <span className="ep-number">Episode</span>{" "}
                         {el.episode_number} :{" "}
@@ -95,7 +127,6 @@ function TvWatch() {
                   </SwiperSlide>
                 ))}
             </Swiper>
-            <div className="episodes"></div>
           </div>
           <div className="sideBar">
             <WatchSidebar />

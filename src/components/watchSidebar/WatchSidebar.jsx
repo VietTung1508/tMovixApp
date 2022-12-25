@@ -37,7 +37,7 @@ function WatchSidebar() {
       </div>
       <div className="watchSidebar__movies">
         {similar &&
-          similar.slice(0, `${category === "movie" ? 3 : 5}`).map((el, i) => (
+          similar.slice(0, `${category === "movie" ? 5 : 6}`).map((el, i) => (
             <div key={i} className="watchSidebar__movies__movieBox">
               <div
                 className="img"
