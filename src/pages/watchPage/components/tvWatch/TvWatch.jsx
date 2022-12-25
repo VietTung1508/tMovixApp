@@ -62,7 +62,7 @@ function TvWatch() {
                 <div className="detail-movie__info">
                   <h2 className="detail-title">{movie.name || movie.title}</h2>
                   <div className="detail-genres">
-                    {movie.genres.slice(0, 3).map((el, i) => (
+                    {movie.genres.slice(0, 2).map((el, i) => (
                       <p key={i}>{el.name}</p>
                     ))}
                   </div>
@@ -70,11 +70,11 @@ function TvWatch() {
                   <p className="detail-voteadate">
                     <span style={{ color: "#b5e745" }}>
                       {movie.vote_average.toFixed(1)}
-                      <StarIcon fontSize="medium" />
+                      <StarIcon fontSize="large" />
                     </span>
                     <span>
                       {movie.first_air_date.slice(0, 4)}
-                      <CalendarTodayIcon fontSize="small" />
+                      <CalendarTodayIcon fontSize="large" />
                     </span>
                   </p>
                   <p className="detail-eps">
@@ -98,7 +98,7 @@ function TvWatch() {
                   </option>
                 ))}
             </select>
-            <Swiper grabCursor={true} spaceBetween={15} slidesPerView={5}>
+            <Swiper grabCursor={true} spaceBetween={15} slidesPerView={"auto"}>
               {eps &&
                 eps.map((el, i) => (
                   <SwiperSlide key={i}>

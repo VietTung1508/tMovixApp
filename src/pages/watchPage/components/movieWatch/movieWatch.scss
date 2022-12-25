@@ -11,15 +11,25 @@
     gap: 20px;
     .screen {
       width: 80%;
+      @include tablet {
+        width: 100%;
+      }
       iframe {
         width: 100%;
         height: 90vh;
+        @include tablet {
+          height: 50vh;
+        }
       }
       .detail-movie {
         @include flex(flex-start, center);
         gap: 30px;
         margin-top: 30px;
         margin-bottom: 10px;
+        @include tablet {
+          @include flex(center, center);
+          flex-direction: column;
+        }
         &__img {
           padding-top: 400px;
           background-position: top;
@@ -27,17 +37,32 @@
           background-size: cover;
           border-radius: 10px;
           width: 22%;
+          @include tablet {
+            width: 50%;
+          }
+          @include mobile {
+            width: 80%;
+          }
         }
         &__info {
           width: 78%;
+          @include tablet {
+            width: 100%;
+          }
           .detail-title {
             font-size: 50px;
             font-weight: 700;
+            @include tablet {
+              text-align: center;
+            }
           }
           .detail-genres {
             @include flex(center, flex-start);
             gap: 20px;
             margin-top: 10px;
+            @include tablet {
+              @include flex(center, center);
+            }
             p {
               border: 2px solid $white;
               padding: 0.5rem 1.2rem;
@@ -45,16 +70,25 @@
               font-weight: 600;
               background-color: $body-bg;
               border-radius: $border-radius;
+              @include tablet {
+                font-size: 1.5rem;
+              }
             }
           }
           .detail-overview {
             font-size: 20px;
             margin: 20px 0;
+            @include tablet {
+              text-align: center;
+            }
           }
           .detail-voteadate {
             @include flex(Center, flex-start);
             gap: 40px;
             font-size: 20px;
+            @include tablet {
+              @include flex(Center, center);
+            }
             span {
               @include flex(Center, flex-start);
               gap: 10px;
@@ -69,6 +103,9 @@
     }
     .sideBar {
       width: 20%;
+      @include tablet {
+        display: none;
+      }
     }
   }
 }

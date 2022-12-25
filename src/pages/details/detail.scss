@@ -120,9 +120,15 @@
     .overview {
       p {
         @include mobile {
-          font-size: 1.3rem;
+          font-size: 1.8rem;
           line-height: 2.4rem;
         }
+      }
+    }
+    .watchNow {
+      display: none;
+      @include mobile {
+        display: unset;
       }
     }
   }

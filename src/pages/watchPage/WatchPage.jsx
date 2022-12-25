@@ -25,7 +25,12 @@ function WatctPage() {
   return (
     <>
       {movie && (
-        <div className="watch">
+        <div
+          className="watch"
+          style={{
+            overflowX: "hidden",
+          }}
+        >
           <div
             className="banner"
             style={{

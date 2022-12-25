@@ -3,7 +3,7 @@ import "./detail.scss";
 import tmdbApi from "../../api/tmdbApi";
 
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import noPoster from "../../assets/noposter.png";
 import noPosterHeader from "../../assets/footer-bg.jpg";
 import CastList from "./CastList";
@@ -14,8 +14,8 @@ import Button from "../../components/button/Button";
 
 function Detail() {
   const { category, id } = useParams();
-
   const [movie, setMovie] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getDetailMovie = async () => {
@@ -83,6 +83,18 @@ function Detail() {
               <div className="overview">
                 <p>{movie.overview}</p>
               </div>
+              <Button
+              className = "watchNow"
+                onClick={() => {
+                  navigate(
+                    `/${category}/${movie.id}/${
+                      category === "movie" ? "watch" : "watch&season=1&ep=1"
+                    }`
+                  );
+                }}
+              >
+                Watch Now!
+              </Button>
               <div className="cast-list">
                 <h3>Casts</h3>
                 <CastList />
